@@ -1,0 +1,28 @@
+\SPBGSplitSlide
+  {Мягкое отделение}
+  {.335}{.52}
+  {%
+    \ReportSoftMargin
+  }
+  {.785}{.31}
+  {%
+    \SplitBody
+    Вводятся переменные нарушений:
+    \[
+      \begin{aligned}
+      \xi_j(\langle w,p_j\rangle+\beta)&\geq 1-\eta_j,\\
+      \eta_j&\geq0.
+      \end{aligned}
+    \]
+
+    Прямая задача:
+    \[
+      \begin{aligned}
+      \min_{w,\beta,\eta}\quad&
+        \frac12\|w\|^2+C\sum_{j=1}^{m}\eta_j
+      \end{aligned}
+    \]
+
+    \SplitBody
+    Параметр \(C\) задаёт баланс между шириной полосы и штрафом за нарушения.
+  }

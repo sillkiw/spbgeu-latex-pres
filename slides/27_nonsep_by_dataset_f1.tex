@@ -1,0 +1,25 @@
+\ChartFrame{Неразделимые данные: F1 по наборам}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ybar,
+      ymin=0,
+      ymax=1,
+      ylabel={Test F1},
+      symbolic x coords={N1,N2,N3,N4},
+      xtick=data,
+      bar width=5pt,
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=3, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot[fill=blue!45] coordinates {(N1,0.754) (N2,0.864) (N3,0.780) (N4,0.189)};
+      \addplot[fill=spbgeuPurple!45] coordinates {(N1,0.646) (N2,0.809) (N3,0.774) (N4,0.232)};
+      \addplot[fill=black!45] coordinates {(N1,0.751) (N2,0.894) (N3,0.874) (N4,0.714)};
+      \addplot[fill=red!45] coordinates {(N1,0.751) (N2,0.894) (N3,0.874) (N4,0.714)};
+      \addplot[fill=green!45] coordinates {(N1,0.750) (N2,0.894) (N3,0.872) (N4,0.490)};
+      \legend{MDM,MDM-A,SMO,SVC,LinearSVC}
+    \end{axis}
+  \end{tikzpicture}
+}

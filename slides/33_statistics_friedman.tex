@@ -1,0 +1,38 @@
+\SPBGContentSlide
+  {Общая проверка различий}
+  {%
+    \centering
+    \TinyBody
+    \renewcommand{\arraystretch}{1.16}
+    \setlength{\tabcolsep}{5pt}
+    \begin{tabular}{|l|l|c|c|c|}
+      \hline
+      \textbf{Блок} & \textbf{Метрика} & \textbf{$n$} & \textbf{$p$-value} & \textbf{Вывод} \\
+      \hline
+      Разделимые & Итерации & 36 & $5.61\cdot10^{-23}$ & значимо \\
+      \hline
+      Разделимые & Время & 36 & $1.05\cdot10^{-17}$ & значимо \\
+      \hline
+      Неразделимые & Test F1 & 36 & $7.96\cdot10^{-6}$ & значимо \\
+      \hline
+      Неразделимые & ROC-AUC & 36 & $0.034$ & значимо \\
+      \hline
+      Неразделимые & Время & 36 & $5.35\cdot10^{-37}$ & значимо \\
+      \hline
+      Реальные & Test F1 & 90 & $4.25\cdot10^{-6}$ & значимо \\
+      \hline
+      Реальные & ROC-AUC & 90 & $0.468$ & незначимо \\
+      \hline
+      Реальные & Время & 90 & $1.16\cdot10^{-91}$ & значимо \\
+      \hline
+    \end{tabular}
+
+    \vspace{.18cm}
+    \begin{minipage}{.88\linewidth}
+      \SmallBody
+      \raggedright
+      Критерий Фридмана показывает, что различия между методами есть почти во
+      всех блоках. Исключение -- ROC-AUC на реальных данных: по ранжированию
+      объектов методы близки, тогда как F1 и время различаются устойчиво.
+    \end{minipage}
+  }

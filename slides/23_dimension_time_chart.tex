@@ -1,0 +1,21 @@
+\ChartFrame{Влияние размерности: время}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xlabel={Размерность $d$},
+      ylabel={Время, с},
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=6, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(2,0.0156) (5,0.0320) (10,0.0385) (20,0.0845) (50,0.1482) (100,0.3367)};
+      \addplot+[mark=star, thick, black] coordinates {(2,0.0015) (5,0.0161) (10,0.0160) (20,0.0311) (50,0.0496) (100,0.0718)};
+      \addplot+[mark=square*, thick, red] coordinates {(2,0.0209) (5,0.0417) (10,0.0514) (20,0.1117) (50,0.1956) (100,0.4356)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(2,0.0196) (5,0.0349) (10,0.0480) (20,0.0942) (50,0.1602) (100,0.3217)};
+      \addplot+[mark=diamond*, thick, orange!80!black] coordinates {(2,0.0058) (5,0.0422) (10,0.0695) (20,0.1716) (50,0.3483) (100,0.6979)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(2,0.0161) (5,0.0930) (10,0.1640) (20,0.3405) (50,0.6749) (100,1.3840)};
+      \legend{H1,H2,H3,H4,H5,H6}
+    \end{axis}
+  \end{tikzpicture}
+}

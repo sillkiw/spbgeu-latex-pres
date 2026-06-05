@@ -1,0 +1,23 @@
+\ChartFrame{Неразделимые данные: F1 и размер выборки}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xlabel={Объектов на класс},
+      ylabel={Test F1},
+      ymin=.54,
+      ymax=.84,
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=3, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(100,0.698) (250,0.629) (500,0.614)};
+      \addplot+[mark=diamond*, thick, spbgeuTeal] coordinates {(100,0.698) (250,0.629) (500,0.614)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(100,0.698) (250,0.576) (500,0.572)};
+      \addplot+[mark=star, thick, black] coordinates {(100,0.793) (250,0.820) (500,0.811)};
+      \addplot+[mark=square*, thick, red] coordinates {(100,0.793) (250,0.820) (500,0.811)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(100,0.744) (250,0.760) (500,0.750)};
+      \legend{MDM,MDM-G,MDM-A,SMO,SVC,LinearSVC}
+    \end{axis}
+  \end{tikzpicture}
+}

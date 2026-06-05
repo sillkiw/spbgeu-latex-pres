@@ -1,0 +1,27 @@
+\SPBGContentSlide
+  {Типы данных в эксперименте}
+  {%
+    \centering
+    \begin{tikzpicture}[>=Latex, every node/.style={font=\fontsize{15}{18}\selectfont}]
+      \node[draw=spbgeuTeal!70, fill=spbgeuTeal!10, rounded corners=4pt,
+        text width=3.8cm, minimum height=2.35cm, align=center] (s) at (-4.35,1.15)
+        {\bfseries S1--S4\\[3pt]разделимая\\синтетика};
+      \node[draw=spbgeuPurple!70, fill=spbgeuPurple!10, rounded corners=4pt,
+        text width=3.9cm, minimum height=2.35cm, align=center] (n) at (0,1.15)
+        {\bfseries N1--N4\\[3pt]пересечения, выбросы,\\шум, XOR};
+      \node[draw=spbgeuText!55, fill=gray!12, rounded corners=4pt,
+        text width=3.9cm, minimum height=2.35cm, align=center] (r) at (4.35,1.15)
+        {\bfseries R1--R15\\[3pt]реальные бинарные\\датасеты};
+
+      \node[text=spbgeuTeal, text width=3.4cm, align=center] (sd) at (-4.35,-2.00)
+        {геометрия\\строгого отделения};
+      \node[text=spbgeuPurple, text width=3.6cm, align=center] (nd) at (0,-2.00)
+        {качество при\\пересечении классов};
+      \node[text=spbgeuText, text width=3.8cm, align=center] (rd) at (4.35,-2.00)
+        {устойчивость\\на практике};
+
+      \draw[->, thick, spbgeuTeal] (s.south) to[out=-85,in=105] (sd.north);
+      \draw[->, thick, spbgeuPurple] (n.south) to[out=-90,in=90] (nd.north);
+      \draw[->, thick, spbgeuText] (r.south) to[out=-95,in=75] (rd.north);
+    \end{tikzpicture}
+  }

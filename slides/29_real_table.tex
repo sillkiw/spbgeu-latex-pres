@@ -1,0 +1,19 @@
+\SPBGContentSlide
+  {Реальные бинарные данные}
+  {%
+    \centering
+    \SmallBody
+    \renewcommand{\arraystretch}{1.16}
+    \begin{tabular}{@{}lrrrr@{}}
+      \toprule
+      Метод & Test F1 & ROC-AUC & Время, с & Итерации \\
+      \midrule
+      Мягкий MDM & 0.823 & 0.919 & 1.5123 & 554.4 \\
+      Мягкий MDM-G & 0.823 & 0.920 & 3.1236 & 558.1 \\
+      Мягкий MDM-A & 0.822 & 0.921 & 6.3971 & 499.3 \\
+      Мягкий SMO & 0.815 & 0.909 & 0.2357 & 3421.5 \\
+      SVC & 0.844 & 0.924 & 0.1988 & -- \\
+      LinearSVC & 0.846 & 0.925 & 0.0027 & 12.6 \\
+      \bottomrule
+    \end{tabular}
+  }

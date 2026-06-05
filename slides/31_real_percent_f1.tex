@@ -1,0 +1,23 @@
+\ChartFrame{Реальные данные: F1 при разной доле объектов}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xlabel={Доля данных, \%},
+      ylabel={Test F1},
+      ymin=.78,
+      ymax=.87,
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=3, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(20,0.817) (50,0.829)};
+      \addplot+[mark=diamond*, thick, spbgeuTeal] coordinates {(20,0.817) (50,0.829)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(20,0.816) (50,0.828)};
+      \addplot+[mark=star, thick, black] coordinates {(20,0.837) (50,0.794)};
+      \addplot+[mark=square*, thick, red] coordinates {(20,0.860) (50,0.828)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(20,0.853) (50,0.839)};
+      \legend{MDM,MDM-G,MDM-A,SMO,SVC,LinearSVC}
+    \end{axis}
+  \end{tikzpicture}
+}

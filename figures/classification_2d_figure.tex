@@ -1,0 +1,118 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\usepackage{fontspec}
+\usepackage{fix-cm}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+
+\setsansfont{NotoSans}[
+  Path=/usr/share/fonts/noto/,
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  Ligatures=TeX
+]
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{spbgeuTeal}{HTML}{02878F}
+\definecolor{spbgeuText}{HTML}{262626}
+\DeclareMathOperator{\sgn}{sgn}
+
+\begin{document}
+\begin{tikzpicture}[
+  x=1cm,
+  y=1cm,
+  >=Latex,
+  label/.style={font=\fontsize{15}{18}\selectfont},
+  formula/.style={font=\fontsize{17}{21}\selectfont},
+  point/.style={circle, inner sep=0pt, minimum size=6.5pt}
+]
+  \fill[blue!7] (-6.0,-3.1) rectangle (0.72,3.2);
+  \fill[red!7] (0.72,-3.1) rectangle (6.0,3.2);
+  \fill[white] (-6.0,-3.1) -- (1.55,-3.1) -- (-.68,3.2) -- (-6.0,3.2) -- cycle;
+  \fill[blue!8] (-6.0,-3.1) -- (1.55,-3.1) -- (-.68,3.2) -- (-6.0,3.2) -- cycle;
+  \fill[red!8] (-.68,3.2) -- (6.0,3.2) -- (6.0,-3.1) -- (1.55,-3.1) -- cycle;
+
+  \draw[->, gray!58, line width=.55pt] (-5.75,0) -- (5.82,0)
+    node[right, label] {$x_1$};
+  \draw[->, gray!58, line width=.55pt] (0,-2.88) -- (0,2.96)
+    node[above, label] {$x_2$};
+
+  \draw[spbgeuText!82, line width=1.35pt] (-.68,3.2) -- (1.55,-3.1);
+
+  \draw[->, spbgeuText!88, line width=1.05pt] (.36,-.08) -- (-1.12,-.61)
+    node[below left, fill=white, inner sep=1.6pt, label] {$w$};
+
+  \foreach \x/\y in {
+    -4.15/1.92,
+    -3.55/.66,
+    -3.02/-1.36,
+    -2.48/1.28,
+    -2.05/-.26,
+    -1.42/-1.82,
+    -1.12/.88,
+    -.65/-2.32
+  }
+    \node[point, fill=blue!66] at (\x,\y) {};
+
+  \foreach \x/\y in {
+    2.35/1.72,
+    3.58/.55,
+    3.02/-1.44,
+    2.08/.18,
+    1.52/1.24,
+    2.38/-2.10,
+    4.20/2.20
+  }
+    \node[point, fill=red!70] at (\x,\y) {};
+
+  \node[
+    formula,
+    text=blue!70,
+    fill=white,
+    inner xsep=5pt,
+    inner ysep=2.5pt
+  ] at (-3.92,2.63) {$\hat{\xi}(p)=+1$};
+
+  \node[
+    formula,
+    text=red!70,
+    fill=white,
+    inner xsep=5pt,
+    inner ysep=2.5pt
+  ] at (3.60,-2.55) {$\hat{\xi}(p)=-1$};
+
+  \node[
+    formula,
+    fill=white,
+    draw=spbgeuText!18,
+    rounded corners=2pt,
+    inner xsep=6pt,
+    inner ysep=4pt,
+    anchor=west
+  ] at (1.80,-2.05) {$\langle w,p\rangle+\beta=0$};
+
+  \node[
+    formula,
+    align=left,
+    fill=white,
+    draw=spbgeuText!18,
+    rounded corners=2pt,
+    inner sep=7pt,
+    anchor=north east
+  ] at (5.64,2.92)
+    {$p=(x_1,x_2)$\\[3pt]
+     $\hat{\xi}(p)=\sgn(\langle w,p\rangle+\beta)$};
+
+  \node[
+    label,
+    align=center,
+    text=spbgeuText!70
+  ] at (-3.78,-2.72) {класс \(+1\)};
+  \node[
+    label,
+    align=center,
+    text=spbgeuText!70
+  ] at (4.55,-2.72) {класс \(-1\)};
+\end{tikzpicture}
+\end{document}

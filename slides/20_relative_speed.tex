@@ -1,0 +1,26 @@
+\ChartFrame{Относительное ускорение по итерациям}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ybar,
+      ymode=log,
+      ymin=.8,
+      ylabel={$I_{H1}/I_M$},
+      symbolic x coords={S1,S2,S3,S4},
+      xtick=data,
+      bar width=5pt,
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=6, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot[fill=blue!45] coordinates {(S1,1.0) (S2,1.0) (S3,1.0) (S4,1.0)};
+      \addplot[fill=black!45] coordinates {(S1,26.8) (S2,1.4) (S3,23.8) (S4,2.5)};
+      \addplot[fill=red!45] coordinates {(S1,1.0) (S2,.93) (S3,1.0) (S4,1.0)};
+      \addplot[fill=green!45] coordinates {(S1,1.0) (S2,1.6) (S3,1.0) (S4,1.1)};
+      \addplot[fill=orange!65] coordinates {(S1,175.3) (S2,1.8) (S3,116.6) (S4,1.2)};
+      \addplot[fill=spbgeuPurple!55] coordinates {(S1,181.6) (S2,4.2) (S3,125.2) (S4,1.3)};
+      \legend{H1,H2,H3,H4,H5,H6}
+    \end{axis}
+  \end{tikzpicture}
+}

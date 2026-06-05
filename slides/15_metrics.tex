@@ -1,0 +1,21 @@
+\SPBGContentSlide
+  {Метрики качества}
+  {%
+    \FormulaBody
+    Для мягкой постановки использовались две основные test-метрики:
+    \[
+      F_1=
+      2\cdot
+      \frac{\mathrm{Precision}\cdot\mathrm{Recall}}
+      {\mathrm{Precision}+\mathrm{Recall}},
+      \qquad
+      \mathrm{ROC\text{-}AUC}
+      =
+      \int_0^1 TPR(FPR)\,dFPR.
+    \]
+
+    \vspace{.15cm}
+    \Body
+    F1 фиксирует качество итоговой бинарной классификации,
+    а ROC-AUC оценивает способность метода правильно ранжировать объекты.
+  }

@@ -1,0 +1,30 @@
+\ChartFrame{Неразделимые данные: качество и время}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xmode=log,
+      xmin=0.0002,
+      xmax=2.0,
+      ymin=.55,
+      ymax=.84,
+      xlabel={Время, с},
+      ylabel={Test F1}
+    ]
+      \addplot+[only marks, mark=*, mark size=3.8pt, blue] coordinates {(0.2997,0.647)};
+      \node[font=\scriptsize, blue, anchor=south east] at (axis cs:0.2997,0.647) {MDM};
+      \addplot+[only marks, mark=diamond*, mark size=3.8pt, spbgeuTeal] coordinates {(0.6601,0.647)};
+      \node[font=\scriptsize, spbgeuTeal, anchor=south west] at (axis cs:0.6601,0.647) {MDM-G};
+      \addplot+[only marks, mark=o, mark size=3.8pt, spbgeuPurple] coordinates {(1.2505,0.615)};
+      \node[font=\scriptsize, spbgeuPurple, anchor=north west] at (axis cs:1.2505,0.615) {MDM-A};
+      \addplot+[only marks, mark=star, mark size=4pt, black] coordinates {(0.0362,0.808)};
+      \node[font=\scriptsize, anchor=south west] at (axis cs:0.0362,0.808) {SMO};
+      \addplot+[only marks, mark=square*, mark size=3.8pt, red] coordinates {(0.0018,0.808)};
+      \node[font=\scriptsize, red, anchor=south west] at (axis cs:0.0018,0.808) {SVC};
+      \addplot+[only marks, mark=triangle*, mark size=3.8pt, green!60!black] coordinates {(0.0004,0.751)};
+      \node[font=\scriptsize, green!45!black, anchor=south west] at (axis cs:0.0004,0.751) {LinearSVC};
+    \end{axis}
+  \end{tikzpicture}
+}

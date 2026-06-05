@@ -1,0 +1,34 @@
+\SPBGContentSlide
+  {Мягкое отделение: парные проверки}
+  {%
+    \centering
+    \TinyBody
+    \renewcommand{\arraystretch}{1.12}
+    \setlength{\tabcolsep}{2.8pt}
+    \begin{tabular}{|l|r|r|c|r|r|c|}
+      \hline
+      \textbf{Метод} & \textbf{F1} & \textbf{$\Delta F_1$} & \textbf{$p_H$}
+      & \textbf{$t$, c} & \textbf{$\Delta t$} & \textbf{$p_H$} \\
+      \hline
+      MDM-G & 0.647 & +0.000 & 1.000 & 0.6601 & +0.3605 & $8.77\cdot10^{-7}$ \\
+      \hline
+      MDM-A & 0.615 & -0.032 & 0.473 & 1.2505 & +0.9509 & $8.77\cdot10^{-7}$ \\
+      \hline
+      SMO & 0.808 & +0.161 & 0.002 & 0.0362 & -0.2635 & $8.77\cdot10^{-7}$ \\
+      \hline
+      SVC & 0.808 & +0.161 & 0.002 & 0.0018 & -0.2978 & $8.77\cdot10^{-7}$ \\
+      \hline
+      LinearSVC & 0.751 & +0.105 & 0.003 & 0.0004 & -0.2992 & $8.77\cdot10^{-7}$ \\
+      \hline
+    \end{tabular}
+
+    \vspace{.18cm}
+    \begin{minipage}{.90\linewidth}
+      \SmallBody
+      \raggedright
+      Сравнение проводится с базовым мягким MDM на N1--N4. MDM-G и MDM-A не
+      дают значимого улучшения качества, зато увеличивают время. SVM-решатели
+      значимо выигрывают по F1; по ROC-AUC картина такая же для SMO, SVC и
+      LinearSVC.
+    \end{minipage}
+  }

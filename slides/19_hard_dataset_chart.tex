@@ -1,0 +1,25 @@
+\ChartFrame{Строгое отделение: зависимость от набора}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ybar,
+      ymin=0,
+      ylabel={Итерации},
+      symbolic x coords={S1,S2,S3,S4},
+      xtick=data,
+      bar width=5pt,
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=6, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot[fill=blue!45] coordinates {(S1,564.9) (S2,955.1) (S3,375.6) (S4,794.0)};
+      \addplot[fill=black!45] coordinates {(S1,21.1) (S2,674.7) (S3,15.8) (S4,315.1)};
+      \addplot[fill=red!45] coordinates {(S1,564.9) (S2,1025.1) (S3,375.6) (S4,795.2)};
+      \addplot[fill=green!45] coordinates {(S1,564.9) (S2,592.9) (S3,375.6) (S4,729.3)};
+      \addplot[fill=orange!65] coordinates {(S1,3.2) (S2,531.9) (S3,3.2) (S4,690.1)};
+      \addplot[fill=spbgeuPurple!55] coordinates {(S1,3.1) (S2,230.0) (S3,3.0) (S4,632.2)};
+      \legend{H1,H2,H3,H4,H5,H6}
+    \end{axis}
+  \end{tikzpicture}
+}

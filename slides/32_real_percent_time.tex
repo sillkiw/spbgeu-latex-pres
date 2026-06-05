@@ -1,0 +1,22 @@
+\ChartFrame{Реальные данные: время при разной доле объектов}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ymode=log,
+      xlabel={Доля данных, \%},
+      ylabel={Время, с},
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=3, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(20,0.6551) (50,2.3694)};
+      \addplot+[mark=diamond*, thick, spbgeuTeal] coordinates {(20,1.3960) (50,4.8512)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(20,2.7937) (50,10.0004)};
+      \addplot+[mark=star, thick, black] coordinates {(20,0.1786) (50,0.2928)};
+      \addplot+[mark=square*, thick, red] coordinates {(20,0.0536) (50,0.3441)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(20,0.0018) (50,0.0036)};
+      \legend{MDM,MDM-G,MDM-A,SMO,SVC,LinearSVC}
+    \end{axis}
+  \end{tikzpicture}
+}

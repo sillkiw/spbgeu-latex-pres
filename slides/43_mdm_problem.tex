@@ -1,0 +1,27 @@
+\SPBGContentSlide
+  {MDM: основная задача}
+  {%
+    \FormulaBody
+    Каждому классу сопоставляются выпуклые оболочки
+    \[
+      C_1=\operatorname{conv}\{p_1,\ldots,p_s\},
+      \qquad
+      C_2=\operatorname{conv}\{p_{s+1},\ldots,p_m\}.
+    \]
+
+    MDM ищет ближайшие точки этих оболочек:
+    \[
+      \frac12\|w_1-w_2\|^2\to\min,
+      \qquad
+      w_1\in C_1,\quad w_2\in C_2.
+    \]
+
+    Через единый план \(u\) это записывается как
+    \[
+      Q(u)=\frac12\|Au\|^2\to\min,\qquad u\in U.
+    \]
+
+    \Body
+    Вектор \(Au\) является текущим направлением между двумя оболочками.
+  }
+

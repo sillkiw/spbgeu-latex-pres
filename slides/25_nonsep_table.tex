@@ -1,0 +1,25 @@
+\SPBGContentSlide
+  {Мягкое отделение: синтетика}
+  {%
+    \centering
+    \Body
+    \renewcommand{\arraystretch}{1.16}
+    \setlength{\tabcolsep}{8pt}
+    \begin{tabular}{|l|r|r|r|r|}
+      \hline
+      Метод & Test F1 & ROC-AUC & Время, с & Итерации \\
+      \hline
+      Мягкий MDM & 0.647 & 0.749 & 0.2997 & 310.9 \\
+      \hline
+      Мягкий MDM-G & 0.647 & 0.749 & 0.6601 & 313.4 \\
+      \hline
+      Мягкий MDM-A & 0.615 & 0.685 & 1.2505 & 255.1 \\
+      \hline
+      Мягкий SMO & 0.808 & 0.777 & 0.0362 & 1283.4 \\
+      \hline
+      SVC & 0.808 & 0.777 & 0.0018 & -- \\
+      \hline
+      LinearSVC & 0.751 & 0.778 & 0.0004 & 3.5 \\
+      \hline
+    \end{tabular}
+  }

@@ -1,0 +1,278 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{spbgeu-beamer}[2026/06/05 SPbGEU beamer template]
+
+\RequirePackage{iftex}
+\ifPDFTeX
+  \RequirePackage[T2A]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+\else
+  \RequirePackage{fontspec}
+\fi
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{xparse}
+\usetikzlibrary{calc}
+
+\definecolor{spbgeuTeal}{HTML}{02878F}
+\definecolor{spbgeuPurple}{HTML}{642F8F}
+\definecolor{spbgeuText}{HTML}{262626}
+
+\geometry{paperwidth=13.333333in,paperheight=7.5in}
+
+\mode<presentation>{
+  \usetheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{headline}{}
+  \setbeamertemplate{footline}{}
+  \setbeamersize{text margin left=0pt,text margin right=0pt}
+  \setbeamercolor{normal text}{fg=spbgeuText,bg=white}
+  \setbeamercolor{itemize item}{fg=spbgeuTeal}
+  \setbeamercolor{itemize subitem}{fg=spbgeuPurple}
+}
+
+\ifPDFTeX
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \setsansfont{NotoSans}[
+    Path=/usr/share/fonts/noto/,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-LightItalic,
+    BoldItalicFont=*-BoldItalic,
+    Ligatures=TeX
+  ]
+  \newfontfamily\SPBGHeadingFace{NotoSans}[
+    Path=/usr/share/fonts/noto/,
+    Extension=.ttf,
+    UprightFont=*-Bold,
+    BoldFont=*-Black,
+    Ligatures=TeX
+  ]
+\fi
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\SPBGBackground}[1]{%
+  \setbeamertemplate{background canvas}{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{#1}%
+  }%
+}
+
+\newcommand{\SPBGSlideNumber}{%
+  \node[
+    anchor=south east,
+    rounded corners=2pt,
+    fill=white,
+    fill opacity=.82,
+    text opacity=1,
+    text=spbgeuText,
+    inner xsep=7pt,
+    inner ysep=3pt
+  ] at ([xshift=-.030\paperwidth,yshift=.034\paperheight]current page.south east)
+  {\fontsize{10.5}{12}\selectfont\insertframenumber/\inserttotalframenumber};%
+}
+
+\NewDocumentCommand{\SPBGNode}{O{} m m m +m}{%
+  \node[
+    anchor=north west,
+    align=left,
+    inner sep=0pt,
+    text depth=0pt,
+    #1
+  ] at ([xshift=#2\paperwidth,yshift=-#3\paperheight]current page.north west)
+  {\begin{minipage}[t]{#4\paperwidth}#5\end{minipage}};%
+}
+
+\NewDocumentCommand{\SPBGCenterNode}{O{} m m m +m}{%
+  \node[
+    anchor=north,
+    align=center,
+    inner sep=0pt,
+    text depth=0pt,
+    #1
+  ] at ([xshift=#2\paperwidth,yshift=-#3\paperheight]current page.north west)
+  {\begin{minipage}[t]{#4\paperwidth}\centering #5\end{minipage}};%
+}
+
+\NewDocumentCommand{\SPBGVCenterNode}{O{} m m m m +m}{%
+  \node[
+    anchor=north west,
+    align=left,
+    inner sep=0pt,
+    text width=#4\paperwidth,
+    minimum height=#5\paperheight,
+    #1
+  ] at ([xshift=#2\paperwidth,yshift=-#3\paperheight]current page.north west)
+  {\begin{minipage}[t][#5\paperheight][c]{#4\paperwidth}#6\end{minipage}};%
+}
+
+\NewDocumentCommand{\SPBGVCenterCenterNode}{O{} m m m m +m}{%
+  \pgfmathsetmacro{\SPBGCenterY}{#3 + #5/2}%
+  \node[
+    anchor=center,
+    align=center,
+    inner sep=0pt,
+    text width=#4\paperwidth,
+    #1
+  ] at ([xshift=#2\paperwidth,yshift=-\SPBGCenterY\paperheight]current page.north west)
+  {\begin{minipage}{#4\paperwidth}\centering #6\end{minipage}};%
+}
+
+\NewDocumentCommand{\SPBGVCenterTextNode}{O{} m m m m +m}{%
+  \pgfmathsetmacro{\SPBGCenterY}{#3 + #5/2}%
+  \node[
+    anchor=center,
+    align=left,
+    inner sep=0pt,
+    text width=#4\paperwidth,
+    #1
+  ] at ([xshift=#2\paperwidth,yshift=-\SPBGCenterY\paperheight]current page.north west)
+  {\begin{minipage}{#4\paperwidth}\raggedright #6\end{minipage}};%
+}
+
+\ifPDFTeX
+  \newcommand{\SPBGHeadingStyle}{\bfseries}
+\else
+  \newcommand{\SPBGHeadingStyle}{\SPBGHeadingFace\bfseries}
+\fi
+
+\newcommand{\SPBGTitleFont}{\fontsize{30}{34}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGAuthorFont}{\fontsize{20}{24}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGRoleFont}{\fontsize{15}{18}\selectfont}
+\newcommand{\SPBGTitleWorkFont}{\fontsize{19}{23}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGThesisTitleFont}{\fontsize{36}{43}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGTitleMetaFont}{\fontsize{17}{21}\selectfont}
+\newcommand{\SPBGTitleMetaSmallFont}{\fontsize{13.5}{16.5}\selectfont}
+\newcommand{\SPBGSectionFont}{\fontsize{56}{62}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGSectionSubFont}{\fontsize{24}{29}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGFrameTitleFont}{\fontsize{25}{30}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGBodyFont}{\fontsize{21}{27}\selectfont}
+\newcommand{\SPBGSplitBodyFont}{\fontsize{18}{23}\selectfont}
+\newcommand{\SPBGIconLabelFont}{\fontsize{18}{22}\selectfont}
+\newcommand{\SPBGContactTitleFont}{\fontsize{40}{46}\selectfont\SPBGHeadingStyle}
+\newcommand{\SPBGContactFont}{\fontsize{30}{36}\selectfont}
+
+\newsavebox{\SPBGSectionTitleBox}
+\newcommand{\SPBGFitSectionTitle}[1]{%
+  \sbox{\SPBGSectionTitleBox}{\SPBGSectionFont\strut #1}%
+  \ifdim\wd\SPBGSectionTitleBox>.900\paperwidth
+    \resizebox{.900\paperwidth}{!}{\usebox{\SPBGSectionTitleBox}}%
+  \else
+    \usebox{\SPBGSectionTitleBox}%
+  \fi
+}
+
+\NewDocumentCommand{\SPBGTitleSlide}{m m m}{%
+  \SPBGBackground{assets/cover-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \SPBGCenterNode[text=white]{.500}{.205}{.840}{\SPBGTitleWorkFont #3}
+      \SPBGCenterNode[text=white]{.500}{.322}{.840}{\SPBGThesisTitleFont #1}
+      \SPBGNode[text=white]{.148}{.585}{.760}{%
+        {\SPBGTitleMetaFont Научный руководитель}\par
+        \vspace{3pt}
+        {\SPBGAuthorFont Соловьева Наталья Анатольевна}\par
+        \vspace{4pt}
+        {\SPBGTitleMetaSmallFont должность, ученая степень, ученое звание}%
+      }
+      \SPBGNode[text=white]{.148}{.750}{.760}{%
+        {\SPBGTitleMetaFont Подготовил}\par
+        \vspace{3pt}
+        {\SPBGAuthorFont #2}\par
+        \vspace{3pt}
+        {\SPBGRoleFont ПМ-2201}%
+      }
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\SPBGSectionSlide}{m m}{%
+  \SPBGBackground{assets/cover-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[
+        anchor=west,
+        align=left,
+        inner sep=0pt,
+        text=white
+      ] at ([xshift=.068\paperwidth,yshift=-.500\paperheight]current page.north west)
+      {%
+        \begin{minipage}{.900\paperwidth}
+          \raggedright
+          \SPBGFitSectionTitle{#1}\par
+          \vspace{12pt}
+          {\SPBGSectionSubFont #2}
+        \end{minipage}%
+      };
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\SPBGContentSlide}{m +m}{%
+  \SPBGBackground{assets/content-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \SPBGVCenterNode[text=white]{.081}{.031}{.761}{.103}{\SPBGFrameTitleFont #1}
+      \begin{scope}
+        \clip ([yshift=-.150\paperheight]current page.north west)
+          rectangle ([xshift=\paperwidth,yshift=-.940\paperheight]current page.north west);
+        \SPBGVCenterTextNode[text=spbgeuText]{.509}{.166}{.856}{.755}{\SPBGBodyFont #2}
+      \end{scope}
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\SPBGSplitSlide}{m m m +m m m +m}{%
+  \SPBGBackground{assets/content-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \SPBGVCenterNode[text=white]{.081}{.031}{.761}{.103}{\SPBGFrameTitleFont #1}
+      \begin{scope}
+        \clip ([yshift=-.150\paperheight]current page.north west)
+          rectangle ([xshift=\paperwidth,yshift=-.940\paperheight]current page.north west);
+        \SPBGVCenterCenterNode[text=spbgeuText]{#2}{.166}{#3}{.755}{\SPBGBodyFont #4}
+        \SPBGVCenterTextNode[text=spbgeuText]{#5}{.166}{#6}{.755}{\SPBGSplitBodyFont #7}
+      \end{scope}
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\SPBGIconItem}{m m m m}{%
+  \node[circle, fill=spbgeuTeal, minimum size=.186\paperwidth, inner sep=0pt]
+    at ([xshift=#1\paperwidth,yshift=-.488\paperheight]current page.north west) {};
+  \node
+    at ([xshift=#1\paperwidth,yshift=-.488\paperheight]current page.north west)
+    {\includegraphics[width=.133\paperwidth]{#2}};
+  \SPBGVCenterCenterNode[text=spbgeuText]{#1}{.685}{.234}{.103}{\SPBGIconLabelFont #3#4}
+}
+
+\NewDocumentCommand{\SPBGThreeIconSlide}{m m m m}{%
+  \SPBGBackground{assets/content-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \SPBGVCenterNode[text=white]{.081}{.031}{.761}{.103}{\SPBGFrameTitleFont #1}
+      \SPBGIconItem{.222}{assets/icon-graduation.png}{#2}{}
+      \SPBGIconItem{.500}{assets/icon-network.png}{#3}{}
+      \SPBGIconItem{.778}{assets/icon-idea.png}{#4}{}
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\SPBGContactsSlide}{m m m m m}{%
+  \SPBGBackground{assets/cover-bg.jpg}%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \SPBGVCenterNode[text=white]{.068}{.276}{.862}{.112}{\SPBGContactTitleFont #1}
+      \SPBGNode[text=white]{.068}{.404}{.862}{\SPBGContactFont #2}
+      \SPBGNode[text=white]{.068}{.644}{.386}{\SPBGContactFont #3}
+      \SPBGNode[text=white]{.335}{.669}{.165}{\fontsize{10}{12}\selectfont #4}
+      \SPBGNode[text=white]{.077}{.876}{.862}{\SPBGContactFont\bfseries #5}
+      \SPBGSlideNumber
+    \end{tikzpicture}
+  \end{frame}
+}

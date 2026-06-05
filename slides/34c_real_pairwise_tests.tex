@@ -1,0 +1,33 @@
+\SPBGContentSlide
+  {Реальные данные: парные проверки}
+  {%
+    \centering
+    \TinyBody
+    \renewcommand{\arraystretch}{1.12}
+    \setlength{\tabcolsep}{2.6pt}
+    \begin{tabular}{|l|r|r|c|r|r|c|}
+      \hline
+      \textbf{Метод} & \textbf{F1} & \textbf{$\Delta F_1$} & \textbf{$p_H$}
+      & \textbf{$t$, c} & \textbf{$\Delta t$} & \textbf{$p_H$} \\
+      \hline
+      MDM-G & 0.823 & +0.0003 & 0.379 & 3.1236 & +1.6113 & $8.87\cdot10^{-16}$ \\
+      \hline
+      MDM-A & 0.822 & -0.0005 & 0.613 & 6.3971 & +4.8848 & $8.87\cdot10^{-16}$ \\
+      \hline
+      SMO & 0.815 & -0.007 & 0.613 & 0.2357 & -1.2766 & $8.87\cdot10^{-16}$ \\
+      \hline
+      SVC & 0.844 & +0.021 & 0.017 & 0.1988 & -1.3135 & $8.87\cdot10^{-16}$ \\
+      \hline
+      LinearSVC & 0.846 & +0.024 & 0.053 & 0.0027 & -1.5096 & $8.87\cdot10^{-16}$ \\
+      \hline
+    \end{tabular}
+
+    \vspace{.18cm}
+    \begin{minipage}{.90\linewidth}
+      \SmallBody
+      \raggedright
+      На R1--R15 различия MDM, MDM-G и MDM-A по качеству не подтверждаются.
+      SVC значимо превосходит MDM по F1 и ROC-AUC; у LinearSVC F1 выше, но
+      после поправки Холма $p_H=0.053$. По времени все отличия от MDM значимы.
+    \end{minipage}
+  }

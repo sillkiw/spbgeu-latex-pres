@@ -1,0 +1,56 @@
+\SPBGContentSlide
+  {Строгое отделение: парные проверки}
+  {%
+    \centering
+    \TinyBody
+    \renewcommand{\arraystretch}{1.10}
+    \setlength{\tabcolsep}{3.4pt}
+    \begin{minipage}[t]{.48\linewidth}
+      \centering
+      \textbf{Итерации относительно H1}\par\vspace{3pt}
+      \begin{tabular}{|l|r|r|c|}
+        \hline
+        \textbf{Метод} & \textbf{Средн.} & \textbf{$\Delta$} & \textbf{$p_H$} \\
+        \hline
+        H3: MDM-G & 690.2 & +17.8 & 0.410 \\
+        \hline
+        H4: MDM-A & 565.7 & -106.7 & $4.28\cdot10^{-4}$ \\
+        \hline
+        H5: треуг. & 307.1 & -365.3 & $4.64\cdot10^{-6}$ \\
+        \hline
+        H6: комб. & 217.1 & -455.3 & $8.77\cdot10^{-7}$ \\
+        \hline
+        H2: SMO & 256.7 & -415.7 & $4.64\cdot10^{-6}$ \\
+        \hline
+      \end{tabular}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.48\linewidth}
+      \centering
+      \textbf{Время относительно H1}\par\vspace{3pt}
+      \begin{tabular}{|l|r|r|c|}
+        \hline
+        \textbf{Метод} & \textbf{Средн.} & \textbf{$\Delta$} & \textbf{$p_H$} \\
+        \hline
+        H3: MDM-G & 0.0792 & +0.0208 & $8.77\cdot10^{-7}$ \\
+        \hline
+        H4: MDM-A & 0.0719 & +0.0135 & $4.17\cdot10^{-4}$ \\
+        \hline
+        H5: треуг. & 0.0533 & -0.0051 & 0.496 \\
+        \hline
+        H6: комб. & 0.1259 & +0.0675 & 0.496 \\
+        \hline
+        H2: SMO & 0.0068 & -0.0516 & $8.77\cdot10^{-7}$ \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+
+    \vspace{.18cm}
+    \begin{minipage}{.90\linewidth}
+      \SmallBody
+      \raggedright
+      Отрицательная разность означает выигрыш относительно базового MDM. Число
+      итераций значимо уменьшают H4--H6 и H2, но по времени устойчивый выигрыш
+      дает только SMO; для треугольного шага преимущество по времени статистически
+      не подтверждается.
+    \end{minipage}
+  }

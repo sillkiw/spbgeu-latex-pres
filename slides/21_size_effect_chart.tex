@@ -1,0 +1,21 @@
+\ChartFrame{Влияние размера выборки}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xlabel={Объектов на класс},
+      ylabel={Итерации},
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=6, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(100,271.6) (250,721.3) (500,1024.3)};
+      \addplot+[mark=star, thick, black] coordinates {(100,182.8) (250,333.1) (500,254.2)};
+      \addplot+[mark=square*, thick, red] coordinates {(100,266.3) (250,777.1) (500,1027.3)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(100,217.8) (250,522.2) (500,957.1)};
+      \addplot+[mark=diamond*, thick, orange!80!black] coordinates {(100,128.8) (250,374.2) (500,418.3)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(100,111.9) (250,207.4) (500,331.9)};
+      \legend{H1,H2,H3,H4,H5,H6}
+    \end{axis}
+  \end{tikzpicture}
+}

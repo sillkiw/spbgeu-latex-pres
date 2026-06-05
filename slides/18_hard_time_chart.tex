@@ -1,0 +1,20 @@
+\ChartFrame{Строгое отделение: время обучения}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ybar,
+      ymin=0,
+      ylabel={Среднее время, с},
+      symbolic x coords={H1,H2,H3,H4,H5,H6},
+      xtick=data,
+      bar width=14pt,
+      scaled y ticks=false
+    ]
+      \addplot[fill=spbgeuPurple!50, draw=spbgeuPurple] coordinates
+        {(H1,0.0584) (H2,0.0068) (H3,0.0792) (H4,0.0719) (H5,0.0533) (H6,0.1259)};
+    \end{axis}
+  \end{tikzpicture}
+}

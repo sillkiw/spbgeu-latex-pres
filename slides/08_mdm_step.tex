@@ -1,0 +1,24 @@
+\SPBGSplitSlide
+  {Итерационный шаг MDM}
+  {.335}{.52}
+  {%
+    \ReportMdmStep
+  }
+  {.790}{.30}
+  {%
+    \SplitBody
+    Перенос веса:
+    \[
+      u_{k+1}
+      =u_k+t_k u_{k,j'}(e_{j''}-e_{j'}).
+    \]
+
+    Длина шага:
+    \[
+      t_k=\min\left\{
+        \frac{\Delta_k}{
+          u_{k,j'}\|p_{j'}-p_{j''}\|^2},
+        1
+      \right\}.
+    \]
+  }

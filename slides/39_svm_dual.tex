@@ -1,0 +1,27 @@
+\SPBGContentSlide
+  {Двойственная задача SVM}
+  {%
+    \FormulaBody
+    Для строгого отделения лагранжиан имеет вид
+    \[
+      \mathcal{L}(w,\beta,\alpha)=
+      \frac12\|w\|^2-
+      \sum_{j=1}^{m}\alpha_j
+      \bigl(\xi_j(\langle w,p_j\rangle+\beta)-1\bigr).
+    \]
+
+    Условия стационарности дают
+    \[
+      w=\sum_{j=1}^{m}\alpha_j\xi_jp_j,
+      \qquad
+      \sum_{j=1}^{m}\alpha_j\xi_j=0.
+    \]
+
+    Поэтому задача переходит к поиску коэффициентов \(\alpha_j\):
+    \[
+      \frac12\langle A_0^TA_0\alpha,\alpha\rangle-\sum_{j=1}^{m}\alpha_j
+      \to\min,\quad
+      \sum_{j=1}^{m}\xi_j\alpha_j=0,\quad \alpha_j\ge0.
+    \]
+  }
+

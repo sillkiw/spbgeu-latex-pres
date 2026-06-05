@@ -1,0 +1,304 @@
+\newcommand{\ReportSvmMargin}{%
+\resizebox{.99\linewidth}{!}{%
+\begin{tikzpicture}[scale=1.20, >=Latex, every node/.style={font=\small}]
+    \draw[->, gray!70] (-4.5,0) -- (4.7,0) node[right] {$x_1$};
+    \draw[->, gray!70] (0,-3.0) -- (0,3.1) node[above] {$x_2$};
+
+    \filldraw[fill=blue!12, draw=blue!70, thick, fill opacity=0.45]
+        (-3.65,1.00) -- (-2.65,1.75) -- (-0.72,1.00) -- (-1.28,-1.00) -- (-3.30,-1.55) -- cycle;
+    \filldraw[fill=red!12, draw=red!70, thick, fill opacity=0.45]
+        (0.72,-1.00) -- (1.28,1.00) -- (3.15,1.55) -- (3.80,-0.15) -- (3.00,-1.60) -- cycle;
+
+    \foreach \x/\y in {-3.65/1.00,-2.65/1.75,-0.72/1.00,-1.28/-1.00,-3.30/-1.55}
+        \fill[blue!65] (\x,\y) circle (2.4pt);
+    \foreach \x/\y in {-3.05/0.85,-2.75/-0.65,-2.35/0.35,-2.45/-1.15,-1.75/0.55,-1.65/-0.35}
+        \fill[blue!65] (\x,\y) circle (2.1pt);
+    \foreach \x/\y in {0.72/-1.00,1.28/1.00,3.15/1.55,3.80/-0.15,3.00/-1.60}
+        \fill[red!70] (\x,\y) circle (2.4pt);
+    \foreach \x/\y in {1.65/0.45,2.35/1.05,2.95/0.55,2.15/-0.55,3.20/-0.85,2.55/-1.20}
+        \fill[red!70] (\x,\y) circle (2.1pt);
+
+    \draw[very thick] (-0.8,-2.7) -- (0.8,2.7) node[above] {$L_0$};
+    \draw[dashed, thick] (-1.8,-2.7) -- (-0.2,2.7) node[above] {$L_1$};
+    \draw[dashed, thick] (0.2,-2.7) -- (1.8,2.7) node[above] {$L_2$};
+
+    \draw[->, thick] (0,0) -- (-1.2,0.36) node[above left, fill=white, inner sep=1pt] {$w$};
+    \draw[thin, gray!75, line cap=round] (-0.20,0.06) -- (-0.29,-0.24) -- (-0.09,-0.30);
+    \draw[<->, gray!75] (-1.17,-0.57) -- (0.67,-1.12)
+        node[midway, below=4pt, fill=white, inner sep=1pt, text=black] {$h=\frac{2}{\|w\|}$};
+
+    \node[blue!65] at (-3.25,2.1) {$\xi=+1$};
+    \node[red!70] at (3.15,2.1) {$\xi=-1$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportSvmSupportVectors}{%
+\resizebox{.84\linewidth}{!}{%
+\begin{tikzpicture}[scale=1.08, >=Latex, every node/.style={font=\small}]
+    \draw[very thick] (-0.6,-2.5) -- (0.7,2.5) node[above] {$L_0$};
+    \draw[dashed, thick] (-1.7,-2.5) -- (-0.4,2.5) node[above left] {$L_1$};
+    \draw[dashed, thick] (0.5,-2.5) -- (1.8,2.5) node[above right] {$L_2$};
+
+    \filldraw[fill=blue!12, draw=blue!70, thick, fill opacity=0.45]
+        (-3.4,0.1) -- (-2.9,-1.2) -- (-1.36,-1.2) -- (-0.93,0.45) -- (-2.3,1.8) -- (-3.0,1.2) -- cycle;
+    \filldraw[fill=red!12, draw=red!70, thick, fill opacity=0.45]
+        (0.98,-0.65) -- (2.8,-1.4) -- (3.15,-0.85) -- (3.4,-0.2) -- (3.1,1.1) -- (2.4,1.9) -- (1.29,0.55) -- cycle;
+
+    \foreach \x/\y in {-3.0/1.2,-3.4/0.1,-2.9/-1.2,-2.3/1.8,-2.4/-0.5,-3.05/0.55,-2.75/1.2,-2.55/0.35,-2.25/-0.15,-2.05/1.05,-3.15/-0.55}
+        \fill[blue!65] (\x,\y) circle (2.1pt);
+    \foreach \x/\y in {3.1/1.1,3.4/-0.2,2.8/-1.4,2.4/1.9,2.3/-0.7,2.75/0.75,2.95/0.2,2.55/-0.45,2.25/1.2,3.15/-0.85,2.6/1.55}
+        \fill[red!70] (\x,\y) circle (2.1pt);
+
+    \foreach \x/\y in {-1.36/-1.2,-0.93/0.45}
+        \draw[blue!80, very thick] (\x,\y) circle (6pt);
+    \foreach \x/\y in {0.98/-0.65,1.29/0.55}
+        \draw[red!80, very thick] (\x,\y) circle (6pt);
+
+    \node[align=center] at (0,-3.0) {$\alpha_j>0$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportSoftMargin}{%
+\resizebox{.88\linewidth}{!}{%
+\begin{tikzpicture}[
+    >=Latex,
+    every node/.style={font=\small},
+    bluepoint/.style={blue!65, fill=blue!65},
+    redpoint/.style={red!70, fill=red!70}
+]
+    \begin{scope}[rotate=10]
+        \draw[dashed, thick, gray!70] (-4.9,1.15) -- (4.9,1.15) node[right, black] {$L_1:\ +1$};
+        \draw[very thick] (-4.9,0) -- (4.9,0) node[right] {$L_0$};
+        \draw[dashed, thick, gray!70] (-4.9,-1.15) -- (4.9,-1.15) node[right, black] {$L_2:\ -1$};
+
+        \draw[<->, gray!70, thick] (-5.25,-1.15) -- (-5.25,1.15) node[midway, left, black] {$\frac{2}{\|w\|}$};
+        \draw[->, thick] (-4.2,0.08) -- (-4.2,1.52) node[above] {$w$};
+
+        \foreach \x/\y in {-4.0/1.62,-3.05/1.43,-1.95/1.59,2.25/1.45,3.25/1.65,4.05/1.47}
+            \fill[bluepoint] (\x,\y) circle (2.6pt);
+        \foreach \x/\y in {-3.95/-1.59,-2.95/-1.42,-1.85/-1.57,2.15/-1.43,3.10/-1.62,3.95/-1.45}
+            \fill[redpoint] (\x,\y) circle (2.6pt);
+
+        \coordinate (BlueV) at (-1.65,0.28);
+        \fill[bluepoint] (BlueV) circle (2.9pt);
+        \draw[blue!75, very thick] (BlueV) circle (6pt);
+        \draw[<->, very thick, blue!75] (-1.65,0.34) -- (-1.65,1.15)
+            node[midway, right, xshift=4pt, black, fill=gray!10, inner sep=1pt] {$0<\eta_j<1$};
+
+        \coordinate (RedErr) at (1.1,0.30);
+        \fill[redpoint] (RedErr) circle (2.9pt);
+        \draw[red!75, very thick] (RedErr) circle (6pt);
+        \draw[<->, very thick, red!75] (1.1,0.24) -- (1.1,-1.15)
+            node[midway, right, xshift=4pt, black, fill=gray!10, inner sep=1pt] {$\eta_j>1$};
+    \end{scope}
+    \node[blue!70] at (-3.4,2.05) {класс $+1$};
+    \node[red!70] at (3.35,-2.05) {класс $-1$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportMdmHulls}{%
+\resizebox{.72\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, every node/.style={font=\small}]
+    \coordinate (A1) at (-3.8,1.1);
+    \coordinate (A2) at (-2.4,2.0);
+    \coordinate (A3) at (-1.3,0.7);
+    \coordinate (A4) at (-1.8,-1.1);
+    \coordinate (A5) at (-3.4,-1.4);
+    \coordinate (B1) at (1.5,1.2);
+    \coordinate (B2) at (3.5,1.7);
+    \coordinate (B3) at (4.0,-0.4);
+    \coordinate (B4) at (2.6,-1.7);
+    \coordinate (B5) at (1.2,-0.7);
+    \fill[blue!12] (A1) -- (A2) -- (A3) -- (A4) -- (A5) -- cycle;
+    \draw[blue!70, very thick] (A1) -- (A2) -- (A3) -- (A4) -- (A5) -- cycle;
+    \fill[red!12] (B1) -- (B2) -- (B3) -- (B4) -- (B5) -- cycle;
+    \draw[red!70, very thick] (B1) -- (B2) -- (B3) -- (B4) -- (B5) -- cycle;
+    \foreach \p in {A1,A2,A3,A4,A5} \fill[blue!65] (\p) circle (2.4pt);
+    \foreach \p in {B1,B2,B3,B4,B5} \fill[red!70] (\p) circle (2.4pt);
+    \foreach \x/\y in {-3.0/0.4,-2.6/0.95,-2.25/-0.2,-2.95/-0.75} \fill[blue!65] (\x,\y) circle (2.1pt);
+    \foreach \x/\y in {2.0/0.35,2.55/0.85,3.05/-0.25,2.35/-0.9} \fill[red!70] (\x,\y) circle (2.1pt);
+    \coordinate (Wone) at (-1.45,0.15);
+    \coordinate (Wtwo) at (1.35,0.05);
+    \draw[very thick, ->] (Wtwo) -- (Wone) node[midway, above] {$w_1^*-w_2^*$};
+    \fill[black] (Wone) circle (2.8pt) node[below left] {$w_1^*$};
+    \fill[black] (Wtwo) circle (2.8pt) node[below right] {$w_2^*$};
+    \node[blue!70] at (-3.2,2.25) {$C_1$};
+    \node[red!70] at (3.4,2.1) {$C_2$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportMdmStep}{%
+\resizebox{.96\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, every node/.style={font=\small}]
+    \coordinate (A1) at (-4.55,-0.10);
+    \coordinate (A2) at (-3.55,1.55);
+    \coordinate (A3) at (-1.70,2.00);
+    \coordinate (A4) at (0.45,0.45);
+    \coordinate (A5) at (-0.10,-1.15);
+    \coordinate (A6) at (-1.65,-1.95);
+    \coordinate (A7) at (-3.55,-1.55);
+    \coordinate (B1) at (3.10,1.40);
+    \coordinate (B2) at (4.95,2.05);
+    \coordinate (B3) at (6.35,1.00);
+    \coordinate (B4) at (6.95,-0.85);
+    \coordinate (B5) at (5.95,-2.00);
+    \coordinate (B6) at (4.10,-1.65);
+    \coordinate (B7) at (2.85,-0.35);
+    \fill[blue!5] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--(A7)--cycle;
+    \draw[blue!70, thick] (A1)--(A2)--(A3)--(A4)--(A5)--(A6)--(A7)--cycle;
+    \fill[red!5] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--(B7)--cycle;
+    \draw[red!70, thick] (B1)--(B2)--(B3)--(B4)--(B5)--(B6)--(B7)--cycle;
+    \foreach \x/\y in {-3.90/0.20,-3.20/1.00,-2.45/1.35,-2.10/0.10,-2.15/-1.10,-1.25/0.90,-2.85/-1.20} \fill[blue!75] (\x,\y) circle (2pt);
+    \foreach \x/\y in {3.70/0.95,4.65/1.15,5.25/0.25,5.80/-0.65,4.25/-0.95,6.00/0.10,4.85/-1.35} \fill[red!75] (\x,\y) circle (2pt);
+    \coordinate (Pfrom) at (A1);
+    \coordinate (Pto) at (A4);
+    \coordinate (X) at (-2.70,-0.90);
+    \coordinate (Xnew) at (-1.20,-0.735);
+    \coordinate (Y) at (4.95,-0.90);
+    \node[blue!80] at (-2.25,2.45) {\Large $C_1$};
+    \node[red!80] at (5.00,2.45) {\Large $C_2$};
+    \fill[blue!90] (Pfrom) circle (3pt);
+    \fill[blue!90] (Pto) circle (3pt);
+    \node[left=5pt] at (Pfrom) {$p_k'$};
+    \node[right=5pt] at (Pto) {$p_k''$};
+    \draw[blue!85, dashed, very thick, ->] (Pfrom) -- (Pto);
+    \fill[black] (X) circle (2.5pt);
+    \fill[black] (Xnew) circle (2.5pt);
+    \node[left=6pt] at (X) {$x_k$};
+    \node[below=5pt] at (Xnew) {$x_{k+1}$};
+    \draw[black, very thick, ->] (X) -- (Xnew);
+    \fill[black] (Y) circle (2.5pt);
+    \node[right=6pt] at (Y) {$y_k$};
+    \draw[gray!70, dashed, thick] (X) -- (Y) node[pos=0.57, below=5pt] {$w_k$};
+    \draw[black, thick] (Xnew) -- (Y) node[pos=0.53, above=5pt] {$w_{k+1}$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportMdmBridge}{%
+\resizebox{.72\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, every node/.style={font=\small}]
+    \coordinate (A) at (-1.20,0);
+    \coordinate (B) at (1.20,0);
+    \coordinate (C) at ($(A)!0.5!(B)$);
+    \draw[blue!65, thick] (-4.0,1.05) -- (-2.75,1.50) -- (A) -- (-2.00,-1.30) -- (-3.60,-1.10) -- cycle;
+    \draw[red!55, thick] (B) -- (2.25,1.22) -- (3.65,0.96) -- (3.88,-0.74) -- (2.35,-1.18) -- cycle;
+    \foreach \x/\y in {-3.55/0.72,-2.75/1.10,-2.05/0.22,-2.35/-0.72,-3.10/-0.65} \fill[blue!65] (\x,\y) circle (2.2pt);
+    \foreach \x/\y in {1.95/0.72,2.85/0.88,3.50/0.24,2.90/-0.76,2.00/-0.42} \fill[red!60] (\x,\y) circle (2.2pt);
+    \draw[very thick] (A) -- (B);
+    \draw[->, thick] ($(B)+(0,0.28)$) -- ($(A)+(0,0.28)$) node[pos=0.65, above=2pt, fill=white, inner sep=1pt] {$v$};
+    \fill[black] (A) circle (2.7pt) node[below left=10pt, yshift=10pt, fill=blue!9, inner sep=1pt, font=\scriptsize] {$w_1^*$};
+    \fill[black] (B) circle (2.7pt) node[below right=10pt, yshift=10pt, fill=red!8, inner sep=1pt, font=\scriptsize] {$w_2^*$};
+    \fill[black] (C) circle (2.2pt) node[right=5pt, fill=white, inner sep=1pt] {$c^*$};
+    \draw[very thick] ($(C)+(0,-1.75)$) -- ($(C)+(0,1.75)$);
+    \draw[dashed, thick, gray!70] ($(A)+(0,-1.65)$) -- ($(A)+(0,1.65)$) node[pos=0.88, left=4pt, black] {$L_1$};
+    \draw[dashed, thick, gray!70] ($(B)+(0,-1.65)$) -- ($(B)+(0,1.65)$) node[pos=0.88, right=4pt, black] {$L_2$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportGroupStep}{%
+\resizebox{.88\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, x=1.25cm, y=1.25cm, every node/.style={font=\normalsize}, line cap=round, line join=round]
+    \path[use as bounding box] (-0.2,-2.0) rectangle (8.7,3.5);
+    \coordinate (H1) at (1.15,-1.25);
+    \coordinate (H2) at (0.95,1.35);
+    \coordinate (H3) at (2.65,2.35);
+    \coordinate (H4) at (6.30,1.45);
+    \coordinate (H5) at (6.30,-0.95);
+    \coordinate (H6) at (3.10,-1.55);
+    \coordinate (R1) at (H4);
+    \coordinate (R2) at (6.30,0.25);
+    \coordinate (R3) at (H5);
+    \coordinate (A) at (R2);
+    \coordinate (D) at (H2);
+    \coordinate (X) at (3.45,0.55);
+    \coordinate (Xn) at (5.269,0.176);
+    \draw[blue!60!black, thick] (H1)--(H2)--(H3)--(H4)--(H5)--(H6)--cycle;
+    \node[blue!60!black, above right=6pt] at (H4) {$C_1$};
+    \foreach \p in {H1,H2,H3,H6} \fill[blue!45] (\p) circle (2.4pt);
+    \foreach \x/\y in {1.45/0.10,2.05/-0.70,2.75/0.95,3.95/1.35,4.80/0.45,4.10/-0.80} \fill[blue!45] (\x,\y) circle (2.4pt);
+    \draw[teal!70!black, very thick] (H4) -- (H5);
+    \foreach \p in {R1,R2,R3} \fill[teal!70!black] (\p) circle (3.8pt);
+    \node[teal!70!black, right=18pt] at (R2) {$I_{\min}$};
+    \draw[black, fill=white, thick] (A) circle (3.2pt);
+    \node[above left=10pt, xshift=-4pt, fill=blue!5, inner sep=1pt] at (A) {$\bar p_{\min}$};
+    \fill[blue!80] (D) circle (3.4pt);
+    \draw[blue!85, thick] (D) circle (7.5pt);
+    \node[above left=-30pt, blue!85!black, fill=blue!5, inner sep=1pt] at (D) {$p'$};
+    \draw[->, very thick, dashed, blue!80!black] (D) -- (A) node[pos=0.54, above=8pt, sloped, fill=blue!5, inner sep=1pt] {$\bar p_{\min}-p'$};
+    \fill[black] (X) circle (3.2pt);
+    \node[below left=6pt, fill=blue!5, inner sep=1pt] at (X) {$w_1$};
+    \fill[red!75!black] (Xn) circle (3.4pt);
+    \node[below right=6pt, red!75!black, fill=blue!5, inner sep=1pt] at (Xn) {$\widetilde w_1$};
+    \draw[->, very thick, red!70!black] (X) -- (Xn) node[pos=0.50, below=9pt, sloped, fill=blue!5, inner sep=1pt] {$-\lambda d$};
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportTriangleStep}{%
+\resizebox{.92\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, every node/.style={font=\small}, line cap=round, line join=round]
+    \coordinate (O) at (0,0);
+    \coordinate (W) at (3.80,1.90);
+    \coordinate (R) at (1.10,2.30);
+    \coordinate (Q) at (2.50,-0.60);
+    \coordinate (Wt) at (1.79,0.87);
+    \fill[black] (O) circle (2.4pt);
+    \node[below left=3pt] at (O) {$0$};
+    \draw[gray!45, dashed] (O) -- (W);
+    \draw[gray!45, dashed] (O) -- (R);
+    \draw[gray!45, dashed] (O) -- (Q);
+    \fill[blue!6] (W)--(R)--(Q)--cycle;
+    \draw[blue!65!black, thick] (W)--(R)--(Q)--cycle;
+    \node[blue!65!black] at (2.45,1.25) {$T_k$};
+    \fill[black] (W) circle (3pt);
+    \node[above right=4pt] at (W) {$w_k$};
+    \fill[teal!75!black] (R) circle (3pt);
+    \node[above left=4pt, teal!75!black] at (R) {$r_k$};
+    \fill[red!75!black] (Q) circle (3pt);
+    \node[below right=4pt, red!75!black] at (Q) {$q_k$};
+    \fill[orange!85!black] (Wt) circle (3.4pt);
+    \node[right=5pt, orange!85!black] at (Wt) {$\widetilde w_k$};
+    \draw[->, very thick, orange!80!black] (O) -- (Wt) node[pos=0.55, below=5pt, sloped, fill=white, inner sep=1pt] {$\operatorname{proj}_{T_k}0$};
+    \draw[orange!80!black, thin] ($(Wt)+(-0.11,0.05)$) -- ($(Wt)+(-0.05,0.18)$) -- ($(Wt)+(0.06,0.13)$);
+\end{tikzpicture}}%
+}
+
+\newcommand{\ReportCycleAcceleration}{%
+\resizebox{.88\linewidth}{!}{%
+\begin{tikzpicture}[>=Latex, every node/.style={font=\small}, scale=1.18, transform shape]
+    \coordinate (H0) at (-4.55,0.30);
+    \coordinate (H1) at (-2.52,1.46);
+    \coordinate (H2) at (-0.14,0.48);
+    \coordinate (H3) at (1.89,1.64);
+    \coordinate (H4) at (4.27,0.66);
+    \draw[->, thick, black!78] (H0) -- (H1) node[midway, above left=1pt, fill=white, inner sep=1.5pt] {$s_{k-2}$};
+    \draw[->, thick, black!78] (H1) -- (H2) node[midway, below left=1pt, fill=white, inner sep=1.5pt] {$s_{k-1}$};
+    \draw[->, thick, dashed, blue!70!black] (H2) -- (H3) node[midway, above left=1pt, fill=white, inner sep=1.5pt] {$s_k\approx s_{k-2}$};
+    \draw[->, thick, dashed, blue!70!black] (H3) -- (H4) node[midway, below left=1pt, fill=white, inner sep=1.5pt] {$s_{k+1}\approx s_{k-1}$};
+    \draw[->, line width=1.0pt, teal!70!black] (H0) -- (H2) node[pos=0.48, below=7pt, fill=white, inner sep=1.5pt] {$v_k=s_{k-2}+s_{k-1}$};
+    \foreach \p in {H0,H1,H3,H4} \fill[black] (\p) circle (2.4pt);
+    \fill[red!75!black] (H2) circle (3pt);
+    \node[below left=3pt] at (H0) {$w_{k-2}$};
+    \node[below=13pt, fill=white, inner sep=1.5pt] at (H2) {$w_k$};
+    \draw[gray!45] (-4.85,-0.72) -- (4.85,-0.72);
+    \coordinate (W) at (-4.10,-2.75);
+    \coordinate (C) at (-1.08,-2.15);
+    \coordinate (U) at (0.48,-1.84);
+    \coordinate (P) at (2.12,-1.51);
+    \coordinate (O) at (2.43,-3.07);
+    \draw[->, line width=1.0pt, gray!70, dashed] (W) -- (C);
+    \draw[gray!60, dashed] (C) -- (P);
+    \draw[->, very thick, red!75!black] (W) -- (U);
+    \draw[gray!65, dashed] (O) -- (P);
+    \draw[gray!65, dashed] (O) -- (U);
+    \fill[red!75!black] (W) circle (3pt);
+    \draw[blue!70!black, fill=white, line width=0.9pt] (C) circle (3pt);
+    \fill[red!75!black] (U) circle (3pt);
+    \draw[teal!70!black, fill=white, line width=1pt] (P) circle (3pt);
+    \fill[black] (O) circle (2.4pt);
+    \node[below left=3pt] at (W) {$w_k$};
+    \node[below=8pt, fill=white, inner sep=1.5pt] at (C) {$w_k+v_k$};
+    \node[above left=9pt, fill=white, inner sep=1.5pt] at (U) {$\widetilde w_k=w_k+\rho_kv_k$};
+    \node[right=7pt, fill=white, inner sep=1.5pt] at (P) {$w_k+\widehat{\rho}v_k$};
+    \node[below=4pt] at (O) {$0$};
+\end{tikzpicture}}%
+}

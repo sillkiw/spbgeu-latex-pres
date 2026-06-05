@@ -1,0 +1,21 @@
+\SPBGContentSlide
+  {SVM строгого отделения}
+  {%
+    \FormulaBody
+
+    В канонической нормировке задача SVM записывается как
+
+    \CenteredDisplayFormula{
+      \min\limits_{w,\beta}\ \frac12\|w\|^2, \\[0.55em]
+      \xi_j\bigl(\langle w,p_j\rangle+\beta\bigr)\geq 1,
+      \quad j=1,\ldots,m.
+    }
+
+    \vspace{.35cm}
+
+    \begin{itemize}
+      \item \(w\in\mathbb{R}^n\), \(\beta\in\mathbb{R}\) -- параметры гиперплоскости;
+      \item \(\langle w,p\rangle+\beta=0\) -- разделяющая гиперплоскость;
+      \item минимизация \(\frac12\|w\|^2\) эквивалентна максимизации ширины полосы.
+    \end{itemize}
+  }

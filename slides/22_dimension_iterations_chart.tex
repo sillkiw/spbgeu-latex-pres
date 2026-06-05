@@ -1,0 +1,21 @@
+\ChartFrame{Влияние размерности: итерации}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      xlabel={Размерность $d$},
+      ylabel={Итерации},
+      legend style={at={(0.5,-0.18)}, anchor=north, legend columns=6, font=\small, \SPBGLegendPlaque}
+    ]
+      \addplot+[mark=*, thick, blue] coordinates {(2,239) (5,537.3) (10,619.7) (20,1296.7) (50,1883.7) (100,3347.7)};
+      \addplot+[mark=star, thick, black] coordinates {(2,61) (5,694.3) (10,681) (20,1296.7) (50,1984) (100,2849.7)};
+      \addplot+[mark=square*, thick, red] coordinates {(2,238.7) (5,522.3) (10,630.7) (20,1305.3) (50,1889.7) (100,3338.3)};
+      \addplot+[mark=triangle*, thick, green!60!black] coordinates {(2,239) (5,384.7) (10,506) (20,937.7) (50,1369) (100,2281.7)};
+      \addplot+[mark=diamond*, thick, orange!80!black] coordinates {(2,48.7) (5,355.7) (10,554.7) (20,1308.7) (50,2248) (100,3683.3)};
+      \addplot+[mark=o, thick, spbgeuPurple] coordinates {(2,46.7) (5,258) (10,431) (20,835.3) (50,1415) (100,2359.7)};
+      \legend{H1,H2,H3,H4,H5,H6}
+    \end{axis}
+  \end{tikzpicture}
+}

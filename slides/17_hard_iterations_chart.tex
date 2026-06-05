@@ -1,0 +1,20 @@
+\ChartFrame{Строгое отделение: число итераций}{%
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=.92\textwidth,
+      height=.58\paperheight,
+      grid=major,
+      major grid style={gray!20},
+      ybar,
+      ymin=0,
+      ylabel={Среднее число итераций},
+      symbolic x coords={H1,H2,H3,H4,H5,H6},
+      xtick=data,
+      bar width=14pt,
+      scaled y ticks=false
+    ]
+      \addplot[fill=spbgeuTeal!55, draw=spbgeuTeal] coordinates
+        {(H1,672.4) (H2,256.7) (H3,690.2) (H4,565.7) (H5,307.1) (H6,217.1)};
+    \end{axis}
+  \end{tikzpicture}
+}

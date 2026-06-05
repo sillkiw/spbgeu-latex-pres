@@ -1,0 +1,40 @@
+\SPBGContentSlide
+  {Реальные данные: F1 по наборам}
+  {%
+    \centering
+    \TinyBody
+    \renewcommand{\arraystretch}{1.08}
+    \setlength{\tabcolsep}{3.2pt}
+    \begin{tabular}{|c|r|r|r|r||c|r|r|r|r|}
+      \hline
+      \textbf{Код} & \textbf{MDM} & \textbf{SMO} & \textbf{SVC} & \textbf{LinSVC}
+      & \textbf{Код} & \textbf{MDM} & \textbf{SMO} & \textbf{SVC} & \textbf{LinSVC} \\
+      \hline
+      R1 & 0.928 & 0.979 & 0.979 & 0.980 & R9 & 0.676 & 0.651 & 0.651 & 0.653 \\
+      \hline
+      R2 & 0.948 & 0.967 & 0.967 & 0.959 & R10 & 0.985 & 0.967 & 0.967 & 0.974 \\
+      \hline
+      R3 & 0.825 & 0.879 & 0.879 & 0.877 & R11 & 1.000 & 1.000 & 1.000 & 1.000 \\
+      \hline
+      R4 & 0.433 & 0.169 & 0.169 & 0.194 & R12 & 0.893 & 0.989 & 0.989 & 0.989 \\
+      \hline
+      R5 & 1.000 & 1.000 & 1.000 & 1.000 & R13 & 0.825 & 0.904 & 0.904 & 0.914 \\
+      \hline
+      R6 & 1.000 & 1.000 & 1.000 & 1.000 & R14 & 0.656 & 0.897 & 0.897 & 0.894 \\
+      \hline
+      R7 & 1.000 & 0.989 & 0.989 & 0.978 & R15 & 0.545 & 0.224 & 0.647 & 0.639 \\
+      \hline
+      R8 & 0.628 & 0.617 & 0.617 & 0.644 & -- & -- & -- & -- & -- \\
+      \hline
+    \end{tabular}
+
+    \vspace{.18cm}
+    \begin{minipage}{.90\linewidth}
+      \SmallBody
+      \raggedright
+      Среднее по R1--R15 скрывает неоднородность данных. На R14 (Spambase)
+      SVM-решатели заметно лучше MDM, на R15 (a9a / Adult) собственный SMO
+      проседает из-за лимита итераций, а на R4, R8 и R9 мягкий MDM остается
+      конкурентным по F1.
+    \end{minipage}
+  }
