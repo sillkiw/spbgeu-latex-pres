@@ -1,4 +1,4 @@
-# SPbGEU Beamer Template
+# Шаблон презентации ГЭУ
 
 Сборка:
 
